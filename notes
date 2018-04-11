@@ -1,0 +1,35 @@
+fetch(url,{
+  method: "POST",
+  headers: {'Contnet-type: 'application/json},
+  body: JSON.strinify({'description': 'test'})
+})
+,then(res=>res.json())
+.then(json=> console.log(json) )
+
+
+**********abvoe from reivew
+document.addEventListener('DOMContentLoaded', function(){}) //wait for dom to load
+
+use debugger!
+
+let listContainer = document.createElement('div')       //<div></div>
+listContainer.className='lists'                         //<div class='lists'></div>  same as below
+listContainer.setAttribute('class','lists') (key,value) //<div class='lists'></div>  same as above
+*********
+
+POST with fetch as well.
+
+***example of posting a new comment to a commit with the GitHub API
+
+//object called postData
+//that we will pass as a JSON string using JSON.stringify in the request
+//We're also setting the method to 'POST'
+//using our Authorization header  since any write action is going to require authorization.
+//All   additional settings go in that options argument,the second argument
+const token = 'YOUR_TOKEN_HERE';
+const postData = {  body: 'Great stuff'};
+fetch('https://api.github.com/repos/:your_ghname/:your_repo/commits/:sha/comments', {
+  method: 'POST',
+  body: JSON.stringify(postData),
+  headers: {    Authorization: `token ${token}`  }
+}).then(res => console.log(res));
